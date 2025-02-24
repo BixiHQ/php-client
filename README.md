@@ -46,6 +46,7 @@ try {
     $response = $bixi->pay([
         'memo' => 'credit',
         'accountNumber' => '+252600000000',
+        'accountType' => 'mmt',
         'receiptId' => '123456',
         'amount' => 1.00,
         'description' => 'Payment for invoice No. 123456',

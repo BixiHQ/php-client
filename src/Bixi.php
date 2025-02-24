@@ -17,7 +17,7 @@ class Bixi
 
     protected HttpClient $client;
 
-    public function __construct(string $apiToken, string $baseUrl = 'https://api.bixi.co/3.0')
+    public function __construct(string $apiToken, string $baseUrl = 'https://api.bixi.co/3.0/')
     {
         $this->apiToken = $apiToken;
         $this->baseUrl = $baseUrl;
@@ -39,7 +39,7 @@ class Bixi
     public function pay(array $attributes): Response
     {
         try {
-            $response = $this->client->post('/pay', [
+            $response = $this->client->post('pay', [
                 'json' => [
                     'data' => [
                         'type' => 'transactions',
