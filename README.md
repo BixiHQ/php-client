@@ -1,8 +1,8 @@
 # Bixi PHP Client
 
-| Main                                                                                            |                                              Dev                                               |                                Coverage                                |
-|-------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------:|
-| ![Main](https://github.com/BixiHQ/php-client/actions/workflows/tests.yml/badge.svg?branch=main) | ![Main](https://github.com/BixiHQ/php-client/actions/workflows/tests.yml/badge.svg?branch=dev) | ![Coverage](https://github.com/BixiHQ/php-client/raw/art/coverage.svg) |
+| Main                                                                                            |                                              Dev                                               |                                Coverage                                |                          Version                           |
+|-------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------:|:----------------------------------------------------------:|
+| ![Main](https://github.com/BixiHQ/php-client/actions/workflows/tests.yml/badge.svg?branch=main) | ![Main](https://github.com/BixiHQ/php-client/actions/workflows/tests.yml/badge.svg?branch=dev) | ![Coverage](https://github.com/BixiHQ/php-client/raw/art/coverage.svg) | ![Version](https://img.shields.io/packagist/v/bixi/client) |
 
 ---
 
@@ -65,6 +65,7 @@ try {
 You can access different parts of the response using methods like `getId()`, `getAttributes()`, and `getAttribute()`:
 
 ```php
+$data = $response->toArray(); // Convert response to an array
 $id = $response->getId(); // Transaction ID
 $attributes = $response->getAttributes(); // All attributes
 $amount = $response->getAttribute('amount'); // Specific attribute
@@ -104,4 +105,4 @@ For the complete list of changes, please see the [changelog file](CHANGELOG.md).
 
 ## Contact
 
-For support or inquiries, please contact the package maintainer at hi@bixi.so.
+For support or inquiries, please contact the package maintainer at <hi@bixi.so>.
