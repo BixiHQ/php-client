@@ -24,7 +24,7 @@ it('processes a successful payment', function (): void {
                 'memo' => 'credit',
                 'accountNumber' => '+252600000000',
                 'receiptId' => '123456',
-                'amount' => 1.00,
+                'amount' => 1.55,
                 'description' => 'Payment for invoice No. 123456',
             ],
         ],
@@ -38,13 +38,13 @@ it('processes a successful payment', function (): void {
         'memo' => 'credit',
         'accountNumber' => '+252600000000',
         'receiptId' => '123456',
-        'amount' => 1.00,
+        'amount' => 1.55,
         'description' => 'Payment for invoice No. 123456',
     ]);
 
     expect($response->getId())->toBe('9d1ad1f3-4d9b-47f2-8ea1-d766face25ed')
         ->and($response->getAttributes())->toHaveKey('receiptId')
-        ->and($response->getAttribute('amount'))->toBe(1.00);
+        ->and($response->getAttribute('amount'))->toBe(1.55);
 });
 
 it('throws ClientException on validation error', function (): void {
@@ -67,7 +67,7 @@ it('throws ClientException on validation error', function (): void {
         $this->bixi->pay([
             'memo' => 'credit',
             'receiptId' => '123456',
-            'amount' => 1.00,
+            'amount' => 1.55,
             'description' => 'Test description',
         ]);
     } catch (ClientException $e) {
@@ -91,7 +91,7 @@ it('throws ClientException with null response', function (): void {
             'memo' => 'credit',
             'accountNumber' => '+252600000000',
             'receiptId' => '123456',
-            'amount' => 1.00,
+            'amount' => 1.55,
             'description' => 'Test description',
         ]);
     } catch (ClientException $e) {

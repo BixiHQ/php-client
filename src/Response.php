@@ -6,33 +6,39 @@ namespace Bixi\Client;
 
 class Response
 {
-    protected array $data;
+    protected array $response;
 
     public function __construct(array $response)
     {
-        $this->data = $response['data'] ?? null;
+        $this->response = $response;
     }
 
     public function getId(): ?string
     {
-        return $this->data['id'] ?? null;
+        return isset($this->response['data']['id'])
+            ? $this->response['data']['id']
+            : null;
     }
 
     public function getAttributes(): ?array
     {
-        return $this->data['attributes'] ?? null;
+        return isset($this->response['data']['attributes'])
+            ? $this->response['data']['attributes']
+            : null;
     }
 
-    public function getAttribute(string $key): float|string|null
+    public function getAttribute(string $key): mixed
     {
-        return $this->data['attributes'][$key]
-            ? $this->castAttribute($this->data['attributes'][$key])
-            : null;
+        if (! isset($this->response['data']['attributes'][$key])) {
+            return null;
+        }
+
+        return $this->castAttribute($this->response['data']['attributes'][$key]);
     }
 
     public function toArray(): array
     {
-        return $this->data;
+        return $this->response;
     }
 
     private function castAttribute(mixed $value): mixed

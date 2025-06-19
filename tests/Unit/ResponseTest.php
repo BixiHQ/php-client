@@ -23,7 +23,7 @@ it('creates a response instance and retrieves data', function (): void {
     expect($response->getId())->toBe('9d1ad1f3-4d9b-47f2-8ea1-d766face25ed')
         ->and($response->getAttributes())->toBe($responseData['data']['attributes'])
         ->and($response->getAttribute('amount'))->toBe(1.00)
-        ->and($response->toArray())->toBe($responseData['data']);
+        ->and($response->toArray())->toBe($responseData);
 });
 
 it('casts a numeric value with decimals to float', function (): void {
